@@ -108,7 +108,7 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-
+<h1 className="text-xl mt-2">📞(888)370-4002</h1>
         {/* Desktop Button */}
         <button
           onClick={handleContact}

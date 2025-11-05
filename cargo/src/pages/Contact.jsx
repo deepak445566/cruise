@@ -15,12 +15,31 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ name: '', email: '', phone: '', message: '' });
+
+    const form = e.target;
+    const formDataToSend = new FormData(form);
+    formDataToSend.append("access_key", ""); // 🔑 Replace with your Web3Forms Access Key
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert("✅ Message sent successfully!");
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        alert("❌ Failed to send message. Please try again later.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("⚠️ Error sending message. Please check your connection.");
+    }
   };
 
   return (
@@ -41,7 +60,7 @@ const Contact = () => {
           <div className="space-y-8">
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
-              
+
               {/* Phone */}
               <div className="flex items-start space-x-4 mb-6">
                 <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -68,8 +87,8 @@ const Contact = () => {
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">Email Us</h4>
                   <p className="text-gray-600">Send us your inquiries and questions</p>
-                  <a href="mailto:info@ktccruises.com" className="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
-                   info@powercruiseholidays.com
+                  <a href="mailto:info@powercruiseholidays.com" className="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+                    info@powercruiseholidays.com
                   </a>
                 </div>
               </div>
@@ -85,7 +104,7 @@ const Contact = () => {
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">Visit Us</h4>
                   <p className="text-gray-600">Our headquarters location</p>
-                  <p className="text-gray-600">Namecheap,Inc. 4600, East Washington Street .Suite 305, Pheonix,AZ 85034</p>
+                  <p className="text-gray-600">Namecheap, Inc. 4600 East Washington Street, Suite 305, Phoenix, AZ 85034</p>
                 </div>
               </div>
             </div>
@@ -110,8 +129,11 @@ const Contact = () => {
                 Send Us a Message
               </h2>
             </div>
-            
-            <form onSubmit={handleSubmit} className="p-8 space-y-6">
+
+            <form onSubmit={handleSubmit} className="p-8 space-y-6" encType="multipart/form-data">
+              {/* Hidden field for source tracking */}
+              <input type="hidden" name="from_name" value="KTC Cruise Contact Page" />
+
               {/* Name */}
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
