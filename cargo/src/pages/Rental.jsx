@@ -297,7 +297,7 @@ const CarRental = () => {
                   <div className="flex items-center justify-between">
                     <span className="text-green-600 font-bold text-lg">{city.price}</span>
                   <motion.a
-    href="tel:8883704002"
+    href="tel:+18883704002"
     whileHover={{ scale: 1.1 }}
     whileTap={{ scale: 0.9 }}
     className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all flex items-center gap-1"

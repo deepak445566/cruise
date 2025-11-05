@@ -72,7 +72,7 @@ const Contact = () => {
                   <h4 className="font-semibold text-gray-900 mb-1">Call Us</h4>
                   <p className="text-gray-600">Speak directly with our cruise experts</p>
                   <a href="tel:+18884536115" className="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
-                    (888) 370-4002
+                  +1 (888) 4536115
                   </a>
                 </div>
               </div>

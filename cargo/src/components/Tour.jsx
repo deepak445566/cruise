@@ -35,10 +35,13 @@ const Tour = () => {
               as a couple or with family, our Deluxe Rooms offer an ideal blend of luxury and value.
             </p>
 
-            {/* Call to Action */}
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
-              Call Now
-            </button>
+            <button
+  onClick={() => window.location.href = "tel:+18883704002"}
+  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105"
+>
+  Call Now
+</button>
+
           </div>
 
           {/* Right Side - Image */}
@@ -87,10 +90,13 @@ const Tour = () => {
               exclusive services during their maritime journey.
             </p>
 
-            {/* Call to Action */}
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
-              Book Now
-            </button>
+           <button
+  onClick={() => window.location.href = "tel:+18883704002"}
+  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105"
+>
+  Call Now
+</button>
+
           </div>
         </div>
       </div>

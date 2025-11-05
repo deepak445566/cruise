@@ -43,7 +43,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`h-[70px] w-[100%] px-4 md:px-10 lg:px-15 xl:px-20 flex items-center justify-between z-50 fixed top-0 left-0 transition-all duration-300 ${
+      className={`h-[70px] w-[100%] px-2 md:px-10 lg:px-15 xl:px-20 flex items-center justify-between z-50 fixed top-0 left-0 transition-all  duration-300 ${
         shouldShowWhiteBg
           ? "bg-white shadow-lg text-gray-900"
           : "bg-transparent text-white"
@@ -52,7 +52,7 @@ const Navbar = () => {
       {/* Logo */}
       <Link
         to="/"
-        className={`text-2xl font-semibold transition-colors duration-300 big ${
+        className={` text-md lg:text-2xl  font-semibold transition-colors duration-300  big ${
           shouldShowWhiteBg ? "text-gray-900" : "text-white"
         }`}
         onClick={handleNavClick}
@@ -108,8 +108,12 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-        <h1 className="text-xl mt-2">📞+1 (888)370-4002</h1>
-        {/* Desktop Button */}
+       <h1 className="text-[13px] lg:text-xl mt-1">
+  <a href="tel:+18883704002" className="">
+    📞 +1 (888) 370-4002
+  </a>
+</h1>
+
         <button
           onClick={handleContact}
           type="button"
@@ -132,7 +136,7 @@ const Navbar = () => {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="30"
+          width="25"
           height="30"
           viewBox="0 0 30 30"
           fill={shouldShowWhiteBg ? "#000" : "#fff"}
@@ -147,7 +151,7 @@ const Navbar = () => {
           className={`absolute top-[70px] left-0 w-full p-6 md:hidden transition-all duration-300 ${
             shouldShowWhiteBg
               ? "bg-white shadow-lg"
-              : "bg-gradient-to-r from-indigo-700 to-violet-500"
+              : "bg-violet-400"
           }`}
         >
           <ul
